@@ -8,12 +8,17 @@ import gleam/http/request.{Request}
 import gleam/http/response.{Response}
 import slaw/templates/home
 
+const version = "0.1"
+
+const port = 3000
+
 pub fn router(req: Request(a)) {
+  // turn the path we get into a list and clean it up a bit
   let deconstructed_path =
     string.split(req.path, on: "/")
     |> list.drop(1)
-  io.debug(deconstructed_path)
 
+  // change route based on our path
   case deconstructed_path {
     [""] -> root()
     ["test", ..] -> {
@@ -22,6 +27,7 @@ pub fn router(req: Request(a)) {
       |> response.prepend_header("Content-Type", "text/html")
       |> response.set_body(body)
     }
+    // 404 if the path requested doesn't exist in our router
     _other ->
       response.new(404)
       |> response.set_body(bit_builder.from_string(
@@ -31,14 +37,11 @@ pub fn router(req: Request(a)) {
 }
 
 pub fn main() {
-  let port = 3000
-
-  io.println("slaw 0.1")
   // there are probably better ways to do this
-  let msg = string.concat(["servin' on port ", int.to_string(port), " !!!"])
-  io.println(msg)
+  io.println(string.concat(["slaw ", version]))
+  io.println(string.concat(["servin' on port ", int.to_string(port), " !!!"]))
 
-  elli.become(router, on_port: 3000)
+  elli.become(router, on_port: port)
 }
 
 pub fn root() -> Response(BitBuilder) {
