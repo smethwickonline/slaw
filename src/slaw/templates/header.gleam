@@ -8,7 +8,7 @@ import gleam/list
 pub fn render_builder() -> StringBuilder {
     let builder = string_builder.from_string("")
     let builder = string_builder.append(builder, "<header>
-    <b>slaw</b>
+    <a href=\"/\"><b>slaw</b></a>
     <!-- TODO: make this use config.forum_title. 
         also, make a config file -->
     <nav>
