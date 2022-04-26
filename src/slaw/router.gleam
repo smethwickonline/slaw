@@ -1,8 +1,9 @@
 import gleam/http/request.{Request}
-import gleam/http/response
-import gleam/bit_builder
+import gleam/http/response.{Response}
+import gleam/bit_builder.{BitBuilder}
 import gleam/string
 import gleam/list
+import gleam/erlang/file
 import slaw/routes/root
 
 pub fn router(req: Request(a)) {
@@ -20,11 +21,21 @@ pub fn router(req: Request(a)) {
       |> response.prepend_header("Content-Type", "text/html")
       |> response.set_body(body)
     }
+    ["assets", ..] -> {
+      let file = file.read_bits(string.drop_left(req.path, 1))
+      case file {
+        Ok(a) ->
+          response.new(200)
+          |> response.set_body(bit_builder.from_bit_string(a))
+        Error(_) -> not_found()
+      }
+    }
     // 404 if the path requested doesn't exist in our router
-    _other ->
-      response.new(404)
-      |> response.set_body(bit_builder.from_string(
-        "couldn't find that one, sorry",
-      ))
+    _other -> not_found()
   }
+}
+
+pub fn not_found() -> Response(BitBuilder) {
+  response.new(404)
+  |> response.set_body(bit_builder.from_string("couldn't find that one, sorry"))
 }
