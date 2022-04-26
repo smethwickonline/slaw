@@ -5,7 +5,7 @@ import gleam/string
 import gleam/erlang/file
 import slaw/status
 
-// import slaw/router
+// TODO: file IO is slow!! get some sort of caching in order here
 pub fn handler(req: Request(a)) {
   // this may look a bit janky. that's because it is.
   // TODO: how do we get the mime type here (do we really need it?)
