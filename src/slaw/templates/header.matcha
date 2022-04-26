@@ -1,0 +1,11 @@
+<header>
+    <b>slaw</b> <!-- TODO: make this use config.forum_title. 
+        also, make a config file -->
+    <nav>
+        <a href="/">Home</a>
+        <a href="/">Search</a>
+        <a href="/">Messages</a>
+        <a href="/">Pings</a>
+        <a href="/">You</a>
+    </nav>
+</header>

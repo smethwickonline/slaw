@@ -15,13 +15,9 @@ pub fn router(req: Request(a)) {
   // change route based on our path
   case deconstructed_path {
     [""] -> root.handler()
-    ["test", ..] -> {
-      let body = bit_builder.from_string("quick lil test !!")
-      response.new(200)
-      |> response.prepend_header("Content-Type", "text/html")
-      |> response.set_body(body)
-    }
     ["assets", ..] -> {
+      // this may look a bit janky. that's because it is.
+      // TODO: how do we get the mime type here (do we really need it?)
       let file = file.read_bits(string.drop_left(req.path, 1))
       case file {
         Ok(a) ->

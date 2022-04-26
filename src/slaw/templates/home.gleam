@@ -3,12 +3,13 @@
 import gleam/string_builder.{StringBuilder}
 import gleam/list
 
-
+import slaw/templates/header
 
 pub fn render_builder(name name: String) -> StringBuilder {
     let builder = string_builder.from_string("")
     let builder = string_builder.append(builder, "<!DOCTYPE html>
 <html>
+
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
@@ -17,11 +18,22 @@ pub fn render_builder(name name: String) -> StringBuilder {
     <link rel='stylesheet' type='text/css' media='screen' href='/assets/main.css'>
     <script src='main.js'></script>
 </head>
+
 <body>
-        hi ")
-    let builder = string_builder.append(builder, name)
+    <!-- TODO: This renders the header template each time the page is loaded, 
+        instead of just baking its contents right into the home template,
+        which is worse?? i think??? -->
+        ")
+    let builder = string_builder.append(builder, header.render())
     let builder = string_builder.append(builder, "
+
+    <main>
+                <h1>🌷 hey ")
+    let builder = string_builder.append(builder, name)
+    let builder = string_builder.append(builder, "!</h1>
+    </main>
 </body>
+
 </html>")
 
     builder
