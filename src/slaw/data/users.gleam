@@ -1,3 +1,3 @@
 pub type User {
-  User(username: String, password: String)
+  User(id: Int, username: String, password: String)
 }

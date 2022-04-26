@@ -5,6 +5,10 @@
 }
 
 :root {
+    /* these colours are generated using the material theme builder in
+    figma. they have a css export option but i refuse to use it
+    because it always means my repos have more css than actual fucking
+    code in them */
     --background: var(--background-light);
     --background-light: #FCFCFC;
     --on-background: var(--on-background-light);
@@ -29,8 +33,6 @@
     --tertiary-container-light: #FFDDAE;
     --on-tertiary-container: var(--on-tertiary-container-light);
     --on-tertiary-container-light: #2A1800;
-
-
 }
 
 body,
@@ -49,7 +51,7 @@ body {
 
 header {
     background-color: var(--surface-variant);
-    color: var(--on-surface-variant);
+    color: var(--on-background);
     display: flex;
     align-items: center;
     height: 1rem;

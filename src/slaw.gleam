@@ -4,6 +4,7 @@ import gleam/int
 import gleam/http/elli
 import gleam/erlang/os
 import slaw/router.{router}
+import slaw/data/db
 
 const version = "0.1"
 
@@ -16,6 +17,9 @@ pub fn main() {
       i
     }
   }
+
+  let db = db.connect()
+
   // there are probably better ways to do this
   io.println(string.concat(["slaw ", version]))
   io.println(string.concat(["servin' on port ", int.to_string(port), " !!!"]))
