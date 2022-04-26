@@ -48,9 +48,13 @@ header nav {
     display: flex;
     align-items: center;
     margin-left: auto;
+    gap: 1rem;
 }
 
 nav a {
+    display: flex;
+    align-items: center;
+    gap: 4px;
     color: inherit;
     text-decoration: none;
     padding: 0.5rem 1rem;
@@ -60,6 +64,10 @@ nav a {
 nav a:hover {
     background-color: var(--on-primary-container);
     color: var(--primary-container);
+}
+
+nav a:hover img {
+    filter: invert(1);
 }
 
 main {

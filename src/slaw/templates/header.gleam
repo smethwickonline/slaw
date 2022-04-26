@@ -8,14 +8,60 @@ import gleam/list
 pub fn render_builder() -> StringBuilder {
     let builder = string_builder.from_string("")
     let builder = string_builder.append(builder, "<header>
-    <b>slaw</b> <!-- TODO: make this use config.forum_title. 
+    <b>slaw</b>
+    <!-- TODO: make this use config.forum_title. 
         also, make a config file -->
     <nav>
-        <a href=\"/\">Home</a>
-        <a href=\"/\">Search</a>
-        <a href=\"/\">Messages</a>
-        <a href=\"/\">Pings</a>
-        <a href=\"/\">You</a>
+        <a href=\"/\">
+            <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" fill=\"currentColor\" viewBox=\"0 0 256 256\">
+                <rect width=\"256\" height=\"256\" fill=\"none\"></rect>
+                <path
+                    d=\"M152,208V160a8,8,0,0,0-8-8H112a8,8,0,0,0-8,8v48a8,8,0,0,1-8,8H48a8,8,0,0,1-8-8V115.5a8.3,8.3,0,0,1,2.6-5.9l80-72.7a8,8,0,0,1,10.8,0l80,72.7a8.3,8.3,0,0,1,2.6,5.9V208a8,8,0,0,1-8,8H160A8,8,0,0,1,152,208Z\"
+                    fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"16\">
+                </path>
+            </svg>Home</a>
+        <a href=\"/\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" fill=\"currentColor\"
+                viewBox=\"0 0 256 256\">
+                <rect width=\"256\" height=\"256\" fill=\"none\"></rect>
+                <circle cx=\"116\" cy=\"116\" r=\"84\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\"
+                    stroke-linejoin=\"round\" stroke-width=\"16\"></circle>
+                <line x1=\"175.4\" y1=\"175.4\" x2=\"224\" y2=\"224\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\"
+                    stroke-linejoin=\"round\" stroke-width=\"16\"></line>
+            </svg>Search</a>
+        <a href=\"/\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" fill=\"currentColor\"
+                viewBox=\"0 0 256 256\">
+                <rect width=\"256\" height=\"256\" fill=\"none\"></rect>
+                <path d=\"M94,61.4a20,20,0,0,1,34.6-20l30,51.9\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\"
+                    stroke-linejoin=\"round\" stroke-width=\"16\"></path>
+                <path d=\"M67.4,95.2l-16-27.7A20,20,0,0,1,86,47.5l34,58.9\" fill=\"none\" stroke=\"currentColor\"
+                    stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"16\"></path>
+                <path
+                    d=\"M154,165.3a39.9,39.9,0,0,1,14.6-54.6l-10-17.4a20,20,0,0,1,34.7-20l20,34.7A80,80,0,0,1,74.7,188l-42-72.8a20,20,0,0,1,34.7-20l22,38.1\"
+                    fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"16\">
+                </path>
+                <path d=\"M81.1,240A110.3,110.3,0,0,1,48,204\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\"
+                    stroke-linejoin=\"round\" stroke-width=\"16\"></path>
+                <path d=\"M176,31a51.7,51.7,0,0,1,45,26\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\"
+                    stroke-linejoin=\"round\" stroke-width=\"16\"></path>
+            </svg>Messages</a>
+        <a href=\"/\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" fill=\"currentColor\"
+                viewBox=\"0 0 256 256\">
+                <rect width=\"256\" height=\"256\" fill=\"none\"></rect>
+                <path d=\"M208,128v80a8,8,0,0,1-8,8H48a8,8,0,0,1-8-8V56a8,8,0,0,1,8-8h80\" fill=\"none\" stroke=\"currentColor\"
+                    stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"16\"></path>
+                <circle cx=\"196\" cy=\"60\" r=\"28\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\"
+                    stroke-linejoin=\"round\" stroke-width=\"16\"></circle>
+            </svg>Pings</a>
+        <a href=\"/\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" fill=\"currentColor\"
+                viewBox=\"0 0 256 256\">
+                <rect width=\"256\" height=\"256\" fill=\"none\"></rect>
+                <circle cx=\"127.9\" cy=\"44\" r=\"28\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\"
+                    stroke-linejoin=\"round\" stroke-width=\"16\"></circle>
+                <path
+                    d=\"M153.9,134.7l34.8,27a12,12,0,0,0,16.9-16.9L166,93.9A19.9,19.9,0,0,0,151.9,88h-48a20.3,20.3,0,0,0-14.2,5.9L50.1,144.8a12,12,0,0,0,17,16.9l34.8-27L74.1,222.3a12,12,0,0,0,21.8,10.2l32-50.4h0l32,50.4a12,12,0,1,0,21.7-10.2Z\"
+                    fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"16\">
+                </path>
+            </svg>You</a>
     </nav>
 </header>")
 
