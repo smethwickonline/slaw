@@ -10,10 +10,10 @@ version = "0.1.0"
 # links = [{ title = "Website", href = "https://gleam.run" }]
 
 [dependencies]
-gleam_stdlib = "~> 0.20"
-gleam_elli = "~> 1.1"
-gleam_pgo = "~> 0.3"
-gleam_json = "~> 0.4"
+gleam_stdlib = "~> 0.21"
+gleam_pgo = "~> 0.4"
+gleam_json = "~> 0.5"
+mist = "~> 0.4"
 
 [dev-dependencies]
 gleeunit = "~> 0.6"

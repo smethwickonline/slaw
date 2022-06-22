@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+
+{> import slaw/templates/head
+{> import slaw/data/forums.{Forum}
+{> with forum as Forum
+{{ head.render(forum.name) }}
+
+<body>
+    {> import slaw/templates/header
+    {{ header.render() }}
+
+    <main>
+        <h3>{{ forum.name }}</h3>
+    </main>
+</body>
+
+</html>

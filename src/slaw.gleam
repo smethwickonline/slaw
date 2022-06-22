@@ -1,7 +1,8 @@
+import mist
 import gleam/io
 import gleam/string
 import gleam/int
-import gleam/http/elli
+import gleam/erlang
 import gleam/erlang/os
 import slaw/router.{router}
 import slaw/data/db
@@ -24,8 +25,6 @@ pub fn main() {
   io.println(string.concat(["slaw ", version]))
   io.println(string.concat(["servin' on port ", int.to_string(port), " !!!"]))
 
-  case elli.become(router, on_port: port) {
-    i -> io.debug(i)
-  }
-  //TODO: slightly less terrible error handling
+  assert Ok(_) = mist.run_service(port, router)
+  erlang.sleep_forever()
 }
